@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.7
 
 from openpyxl import Workbook
 import time
@@ -11,5 +11,6 @@ sheet['A2'] = 43
 
 now = time.strftime("%x")
 sheet['A3'] = now
+sheet['A5'] = now
 
 book.save("sample.xlsx")
