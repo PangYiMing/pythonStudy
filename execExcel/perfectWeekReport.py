@@ -158,8 +158,8 @@ def execData(path, titlePath, path2):
     print('execData: set col name'+',time :' +
           time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     for cell in col:
-        print('execData: cell'+cell.value+',time :' +
-              time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        # print('execData: cell'+cell.value+',time :' +
+        #       time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         if str(cell.value) != 'None':
             sArr = cell.value.split('/')
             index = 0
@@ -209,13 +209,13 @@ def execData(path, titlePath, path2):
                 # 删除这一行
                 mySet.add(cell.row)
                 # ws.delete_rows(cell.row)
-                print('execData: del invalided data'+secondProbleStr+',time :' +
-                      time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                # print('execData: del invalided data'+secondProbleStr+',time :' +
+                #       time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             elif '永辉生活' in str(ytcol[cell.row-1].value) or '全球潮物' in str(ytcol[cell.row-1].value):
                 mySet.add(cell.row)
                 # ws.delete_rows(cell.row)
-                print('execData: del invalided data'+str(ytcol[cell.row-1].value)+',time :' +
-                      time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                # print('execData: del invalided data'+str(ytcol[cell.row-1].value)+',time :' +
+                #       time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             pass
         pass
     for row in ws.iter_rows():
