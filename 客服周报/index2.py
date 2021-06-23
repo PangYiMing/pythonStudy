@@ -66,5 +66,13 @@ for index in range(table2.shape[1]):
             translateFloatToBaifenbi)
         pass
     pass
-print(table)
-table2.to_excel('/Users/lyndonpang/Downloads/7.xlsx')
+swapA = []
+for index in range(table2.shape[1]):
+    if '在线时长/h' in table2.iloc[:, index].name or '满意度' in table2.iloc[:, index].name:
+        swapA = table2.iloc[:, index]
+        table2.iloc[:, index] = table2.iloc[:, index+1]
+        table2.iloc[:, index+1] = swapA
+        pass
+    pass
+print(table2)
+table2.to_excel('/Users/lyndonpang/Downloads/18.xlsx')
