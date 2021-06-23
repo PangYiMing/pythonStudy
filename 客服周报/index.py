@@ -111,19 +111,24 @@ table = pd.pivot_table(df, index=["姓名"], values=[
 table1 = table.stack(level=1)
 table2 = table1.unstack(level=1)
 for index in range(table2.shape[1]):
-    if (index+1) % 3 == 0:
-        print('****', df.iloc[-1, index])
-        df.iloc[:, index] = df.iloc[:, index].map(translateFloatToBaifenbi)
-        print(df.iloc[:, index])
-        continue
-    if (index+1) % 4 == 0:
-        df.iloc[:, index] = df.iloc[:, index].map(translateFloatToBaifenbi)
-        print(df.iloc[:, index])
-        continue
+    # if (index+1) % 3 == 0:
+    #     print('****', table2.iloc[-1, index])
+    #     table2.iloc[:, index] = table2.iloc[:, index].map(
+    #         translateFloatToBaifenbi)
+    #     print(table2.iloc[:, index].name)
+    #     continue
+    # if (index+1) % 4 == 0:
+    # table2.iloc[:, index] = table2.iloc[:, index].map(
+    #     translateFloatToBaifenbi)
+    if '满意度' in table2.iloc[:, index].name or '邀评率' in table2.iloc[:, index].name:
+        print(table2.iloc[:, index].name)
+        table2.iloc[:, index] = table2.iloc[:, index].map(
+            translateFloatToBaifenbi)
+        pass
     pass
 # table2.to_excel('D:/work/客服中心/1.xlsx')
 # for item in range:
 #     pass
 
 
-table2.to_excel('/Users/lyndonpang/Downloads/13.xlsx')
+table2.to_excel('/Users/lyndonpang/Downloads/15.xlsx')
